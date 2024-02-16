@@ -1,23 +1,26 @@
 import PySimpleGUI as sg
 import random
-wins = 0
 layout = [[sg.Button("GENERATE")], 
           [sg.Input(key='-GUESS-', do_not_clear=False)],
           [sg.Button("GUESS")]]
-generated7 = (str(random.randrange(1000000, 9999999)))
-# Create the window
+def regen():
+    gen = str(random.randrange(1000000, 9999999))
+    return gen
 
+# Create the window
 window = sg.Window("Number Memorizer Game", layout)
 
 # Create an event loop
 while True:
     event, values = window.read() 
     if event =="GENERATE":
-        sg.popup_timed(generated7)
+        gen = regen()
+        sg.popup_timed(gen)
+        str(gen)
     if event == "GUESS":
-        if values["-GUESS-"] == generated7:
+        if values["-GUESS-"] == gen:
             sg.popup_timed("Correct")
-            generated7
+            regen()
         else:
              sg.popup_timed("wrong")
 
