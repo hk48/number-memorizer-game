@@ -23,8 +23,6 @@ while True:
             regen()
         else:
              sg.popup_timed("wrong")
-
-
     if event == sg.WIN_CLOSED:
         break
 
